@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {% include 'cdnlines.html'%}
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1 class="text-center">Comment There...</h1>
+        <div class="offset-md-2 col-md-8 text-right">
+          <form  method="POST">
+            {% csrf_token %}
+            <textarea name="name" rows="8" cols="80"class="form-control"style=" border:2px red solid";placeholder="Enter Your Comment:"></textarea>
+            <input type="submit" value="comment"class="btn btn-outline-success">
+            <div class="text-right">
+              {% if abcd %}
+                <div class="text-center">
+              {% for i in abcd %}
+
+               {{i.comment}}<br><br>
+               {% endfor %}
+               </div>
+               {%else %}
+             <h3 class="text-center ">NO COMMENT AVALABLE</h3>
+
+             {% endif %}
+
+         </form>
+
+       </div>
+
+     </div>
+
+   </div>
+
+ </body>
+</html>
